@@ -1,0 +1,55 @@
+classDiagram
+    class Usuario {
+        -int id
+        -String nombre
+        -String correo
+        -String contrasena
+        +iniciarSesion()
+        +cerrarSesion()
+    }
+    class Cliente {
+        -String direccion
+        +agregarAlCarrito()
+        +realizarPedido()
+    }
+    class Administrador {
+        +gestionarProductos()
+        +consultarReportes()
+    }
+    class Producto {
+        -int id
+        -String nombre
+        -double precio
+        -int stock
+        +actualizarStock()
+    }
+    class Categoria {
+        -int id
+        -String nombre
+    }
+    class Carrito {
+        +agregarProducto()
+        +eliminarProducto()
+        +calcularTotal()
+    }
+    class Pedido {
+        -int id
+        -EstadoPedido estado
+        -double total
+        +crearPedido()
+        +cancelarPedido()
+    }
+    class Pago {
+        -int id
+        -MetodoPago metodo
+        -double monto
+        +procesarPago()
+    }
+    Usuario <|-- Cliente
+    Usuario <|-- Administrador
+    Producto --> Categoria
+    Cliente --> Carrito
+    Carrito --> Producto
+    Cliente --> Pedido
+    Pedido --> Pago
+    Pedido --> Producto
