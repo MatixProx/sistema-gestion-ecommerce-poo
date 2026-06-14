@@ -1,76 +1,77 @@
-# Sistema de Gestion de E-commerce
+# Sistema de Gestion de E-commerce - Aprendizaje Autonomo 2
 
-## Descripcion
-Proyecto academico desarrollado para la asignatura Programacion Orientada a Objetos. El sistema tiene como finalidad planificar y estructurar un Sistema de Gestion de e-commerce que permita administrar usuarios, productos, carrito de compras, pedidos, pagos, inventario y reportes administrativos.
+Proyecto academico de Programacion Orientada a Objetos desarrollado en Go. Esta entrega evoluciona la planeacion del Aprendizaje Autonomo 1 hacia una primera version codificada del sistema de gestion de e-commerce.
 
-## Objetivo general
-Disenar la planeacion de un sistema de gestion de e-commerce aplicando principios de Programacion Orientada a Objetos, programacion funcional y conceptos de gestion empresarial.
+## Objetivo
 
-## Objetivos especificos
-- Identificar los modulos principales del sistema.
-- Definir funcionalidades por modulo y su alcance inicial.
-- Representar entidades del negocio mediante clases y objetos.
-- Aplicar abstraccion, encapsulamiento, herencia y polimorfismo.
-- Incorporar operaciones funcionales para filtrar, transformar y resumir informacion.
-- Documentar el proyecto y organizarlo en un repositorio de GitHub.
+Implementar un avance significativo del sistema aplicando estructuras de datos, encapsulacion, manejo de errores e interfaces dentro de un entorno de programacion orientado a objetos.
 
-## Modulos principales
-1. Gestion de usuarios
-2. Gestion de productos
-3. Carrito de compras
-4. Gestion de pedidos
-5. Gestion de pagos
-6. Gestion de inventario
-7. Reportes administrativos
+## Relacion con la tarea
 
-## Principios de Programacion Orientada a Objetos aplicados
-- **Abstraccion:** clases como `Producto`, `Cliente`, `Pedido` y `Pago` representan elementos reales del negocio.
-- **Encapsulamiento:** los atributos se protegen mediante acceso privado y metodos publicos.
-- **Herencia:** `Cliente` y `Administrador` heredan de `Usuario`.
-- **Polimorfismo:** el procesamiento de pagos puede variar segun el metodo seleccionado.
+La tarea solicita continuar el plan, iniciar la codificacion del sistema, identificar las clases o tipos que se desarrollan y aplicar temas vistos en las unidades, especialmente encapsulacion, errores e interfaces. Este repositorio responde con una version funcional de consola que modela usuarios, productos, inventario, carrito, pedidos, pagos y reportes.
 
-## Programacion funcional aplicada
-El proyecto incorpora operaciones funcionales mediante expresiones lambda, `streams`, filtros, mapeos y reducciones para calcular totales, consultar productos con bajo stock y generar reportes.
+## Funcionalidades implementadas
 
-## Tecnologias propuestas
-- Java 17
-- Maven
-- JUnit 5
-- MySQL
-- MySQL Connector/J
-- Git
-- GitHub
+- Registro conceptual de usuarios mediante `Usuario`, `Cliente` y `Administrador`.
+- Encapsulacion real con campos privados y metodos getter/setter.
+- Validaciones de correo, contrasena, nombre, precio, stock y cantidades.
+- Manejo de errores con errores predefinidos y errores formateados.
+- Inventario basado en `map[string]*Producto` para busqueda eficiente por ID.
+- Carrito basado en `[]DetalleCarrito` para agregar, eliminar y modificar productos.
+- Pedido con estados controlados: pendiente, pagado, enviado y cancelado.
+- Interfaz `MetodoPago` para aplicar polimorfismo en tarjeta, transferencia y contra entrega.
+- Reportes administrativos usando slices y concurrencia basica con goroutines y canales.
+- Pruebas unitarias con `go test`.
 
-## Estructura del repositorio
+## Estructura del proyecto
+
 ```text
 sistema-gestion-ecommerce-poo/
-|
+|-- go.mod
 |-- README.md
 |-- .gitignore
-|-- pom.xml
-|
+|-- cmd/demo/main.go
+|-- internal/ecommerce/
+|   |-- usuario.go
+|   |-- producto.go
+|   |-- inventario.go
+|   |-- carrito.go
+|   |-- pedido.go
+|   |-- pago.go
+|   |-- reporte.go
+|   |-- errors.go
+|   |-- ecommerce_test.go
 |-- docs/
-|   |-- planeacion-software.pdf
-|   |-- planeacion-software.docx
-|   |-- alcance-proyecto.md
-|   |-- diagrama-clases.png
-|   |-- diagrama-clases.mmd
-|
-|-- src/
-|   |-- main/java/com/ecommerce/
-|   |   |-- modelo/
-|   |   |-- servicio/
-|   |   |-- util/
-|   |   |-- Main.java
-|   |
-|   |-- test/java/com/ecommerce/
+|   |-- avance-autonomo-2.md
+|   |-- guion-video-avance.md
+|   |-- guion-video-demostracion.md
+|   |-- comandos-git.md
 ```
 
-## Estado del proyecto
-Etapa 1: Planeacion del software.
+## Como ejecutar
 
-## Integrantes
-- Nombre del integrante 1
-- Nombre del integrante 2
-- Nombre del integrante 3
-- Nombre del integrante 4
+```bash
+go run ./cmd/demo
+```
+
+## Como probar
+
+```bash
+go test ./...
+```
+
+## Evidencia para video
+
+1. Mostrar el README y explicar que el proyecto continua el e-commerce planificado.
+2. Mostrar los archivos de `internal/ecommerce` y explicar las entidades principales.
+3. Ejecutar `go test ./...` para demostrar pruebas.
+4. Ejecutar `go run ./cmd/demo` para demostrar inventario, carrito, pedido, pago y reporte.
+5. Mostrar el repositorio en GitHub con los commits del avance.
+
+## Autor
+
+Matias Castro Guerra
+
+## Estado
+
+Etapa 2: Desarrollo del sistema con avance funcional.
