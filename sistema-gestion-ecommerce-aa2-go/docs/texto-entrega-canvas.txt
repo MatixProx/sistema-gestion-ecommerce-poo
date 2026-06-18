@@ -1,0 +1,17 @@
+Buenas tardes, docente.
+
+Adjunto la entrega del Aprendizaje Autonomo 2 correspondiente al desarrollo del Sistema de Gestion de E-commerce.
+
+Repositorio de GitHub:
+https://github.com/MatixProx/sistema-gestion-ecommerce-poo.git
+
+Video explicativo del avance:
+[PEGAR AQUI EL ENLACE DEL VIDEO EXPLICATIVO]
+
+Video de demostracion de funcionalidades:
+[PEGAR AQUI EL ENLACE DEL VIDEO DE DEMOSTRACION]
+
+En el repositorio se incluye el codigo fuente, README, informe del avance, evidencia de ejecucion, pruebas unitarias, guion de video y cumplimiento de la rubrica. El avance implementa encapsulacion, manejo de errores, interfaces, estructuras de datos y comentarios en funcionalidades complejas.
+
+Atentamente,
+Matias Castro Guerra

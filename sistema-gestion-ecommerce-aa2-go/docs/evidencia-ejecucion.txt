@@ -1,0 +1,20 @@
+EVIDENCIA DE EJECUCION - APRENDIZAJE AUTONOMO 2
+Fecha generada: 2026-06-17
+
+$ go test ./...
+?   	github.com/MatixProx/sistema-gestion-ecommerce-poo/cmd/demo	[no test files]
+ok  	github.com/MatixProx/sistema-gestion-ecommerce-poo/internal/ecommerce	(cached)
+
+$ go vet ./...
+
+$ go run ./cmd/demo
+=== DEMOSTRACION DEL SISTEMA E-COMMERCE ===
+Cliente: Matias Castro (cliente)
+Total carrito: $108.90
+Pedido: PED-001 | Estado: pagado | Total: $108.90
+Pago: PAG-TAR-PED-001 | Metodo: tarjeta | Estado: confirmado
+Ventas confirmadas: $108.90
+Pedidos por estado: map[pagado:1]
+Productos mas vendidos: map[Mouse gamer:2 Teclado mecanico:1]
+Productos bajo stock:
+- Teclado mecanico: 1 unidades
