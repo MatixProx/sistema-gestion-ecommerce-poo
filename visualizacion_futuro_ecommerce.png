@@ -1,0 +1,12 @@
+# Guion para video/presentacion final
+
+Duracion sugerida: 5 a 7 minutos.
+
+1. Saludo y presentacion del tema: Sistema de Gestion de E-commerce con servicios web JSON.
+2. Criterio de seleccion: se eligio e-commerce porque integra usuarios, productos, inventario, pedidos, pagos y reportes.
+3. Cronograma: explicar como el proyecto inicia en la semana 1 con planeacion y termina en la semana 8 con servicios web y visualizacion del futuro.
+4. Arquitectura: explicar capas modelo, servicio, repositorio y handlers HTTP.
+5. Conceptos POO: clases/componentes, encapsulacion, interfaces, polimorfismo, responsabilidad unica y manejo de errores.
+6. Servicios web: mostrar los endpoints principales y aclarar que la serializacion se realiza en JSON.
+7. Visualizacion del futuro: explicar IA para recomendaciones, IoT para inventario, pagos digitales, analitica, ciberseguridad y experiencia omnicanal.
+8. Cierre: resultados, limitaciones y aprendizajes.

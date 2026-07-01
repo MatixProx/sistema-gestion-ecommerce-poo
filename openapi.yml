@@ -1,0 +1,29 @@
+package main
+
+import (
+	"log"
+	"net/http"
+	"os"
+
+	"github.com/MatixProx/sistema-gestion-ecommerce-poo/internal/ecommerce"
+)
+
+func main() {
+	store := ecommerce.NuevoMemoriaStore()
+	service := ecommerce.NuevoAppService(store)
+	if err := service.SembrarDatos(); err != nil {
+		log.Fatal(err)
+	}
+	api := ecommerce.NuevoAPI(service)
+
+	puerto := os.Getenv("PORT")
+	if puerto == "" {
+		puerto = "8080"
+	}
+
+	log.Printf("Servidor iniciado en http://localhost:%s", puerto)
+	log.Printf("Servicio de salud: http://localhost:%s/api/salud", puerto)
+	if err := http.ListenAndServe(":"+puerto, api.Router()); err != nil {
+		log.Fatal(err)
+	}
+}

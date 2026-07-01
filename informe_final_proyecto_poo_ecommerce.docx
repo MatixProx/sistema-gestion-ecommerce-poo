@@ -1,0 +1,14 @@
+# Guion para video demostrativo de funcionalidades
+
+1. Abrir el repositorio y mostrar README.md.
+2. Ejecutar `go test ./...` para evidenciar pruebas.
+3. Ejecutar `go run ./cmd/api`.
+4. Abrir `http://localhost:8080/api/salud` y mostrar respuesta JSON.
+5. Consultar productos con `GET /api/productos`.
+6. Registrar cliente con `POST /api/clientes`.
+7. Agregar producto al carrito con `POST /api/carrito/items`.
+8. Consultar carrito con `GET /api/carrito/{clienteId}`.
+9. Crear pedido con `POST /api/pedidos` y copiar su id.
+10. Procesar pago con `POST /api/pagos` usando transferencia o tarjeta.
+11. Consultar reportes de ventas e inventario.
+12. Mostrar un caso de error: agregar cantidad superior al stock o metodo de pago no soportado.

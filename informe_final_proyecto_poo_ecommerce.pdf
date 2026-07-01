@@ -1,0 +1,12 @@
+# Cronograma del proyecto integrador - semanas 1 a 8
+
+| Semana | Unidad | Tema | Actividad principal | Producto/evidencia |
+|---|---|---|---|---|
+| S1 | Unidad 1 | Tema 1 | Seleccion del sistema de gestion empresarial | Sistema de Gestion de E-commerce seleccionado |
+| S2 | Unidad 1 | Tema 2 | Alcance, modulos, clases y repositorio | Planeacion, mapa funcional y GitHub |
+| S3 | Unidad 2 | Tema 3 | Inicio de codificacion del modelo de negocio | Structs/clases, entidades y responsabilidades |
+| S4 | Unidad 2 | Tema 4 | Carrito, pedidos, inventario y validaciones | Avance funcional y errores controlados |
+| S5 | Unidad 3 | Tema 5 | Encapsulacion, interfaces y polimorfismo | Metodos controlados e interfaz MetodoPago |
+| S6 | Unidad 3 | Tema 6 | Pruebas, reportes y documentacion tecnica | Pruebas funcionales y README |
+| S7 | Unidad 4 | Tema 7 | Generacion de servicios web | API REST con respuestas JSON |
+| S8 | Unidad 4 | Tema 8 | Integracion final, visualizacion del futuro y presentacion | Informe, diapositivas, video y repositorio |

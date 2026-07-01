@@ -1,77 +1,107 @@
-# Sistema de Gestion de E-commerce - Aprendizaje Autonomo 2
+# Sistema de Gestion de E-commerce - Proyecto Final POO
 
-Proyecto academico de Programacion Orientada a Objetos desarrollado en Go. Esta entrega evoluciona la planeacion del Aprendizaje Autonomo 1 hacia una primera version codificada del sistema de gestion de e-commerce.
+**Autor:** Matias Castro Guerra  
+**Asignatura:** Programacion Orientada a Objetos  
+**Docente guia:** Palacios Morocho Milton Ricardo  
+**Repositorio sugerido:** https://github.com/MatixProx/sistema-gestion-ecommerce-poo.git
 
-## Objetivo
+## 1. Descripcion del proyecto
 
-Implementar un avance significativo del sistema aplicando estructuras de datos, encapsulacion, manejo de errores e interfaces dentro de un entorno de programacion orientado a objetos.
+Este proyecto implementa un Sistema de Gestion de E-commerce como proyecto integrador de Programacion Orientada a Objetos. La solucion permite administrar productos, clientes, carrito de compras, pedidos, pagos, inventario y reportes mediante servicios web que serializan la informacion en formato JSON.
 
-## Relacion con la tarea
+## 2. Objetivo
 
-La tarea solicita continuar el plan, iniciar la codificacion del sistema, identificar las clases o tipos que se desarrollan y aplicar temas vistos en las unidades, especialmente encapsulacion, errores e interfaces. Este repositorio responde con una version funcional de consola que modela usuarios, productos, inventario, carrito, pedidos, pagos y reportes.
+Desarrollar una version funcional del sistema de gestion seleccionado, integrando conceptos de POO, estructuras de datos, encapsulacion, interfaces, manejo de errores y servicios web para evidenciar la evolucion del proyecto desde la planeacion inicial hasta la entrega final.
 
-## Funcionalidades implementadas
+## 3. Tecnologias
 
-- Registro conceptual de usuarios mediante `Usuario`, `Cliente` y `Administrador`.
-- Encapsulacion real con campos privados y metodos getter/setter.
-- Validaciones de correo, contrasena, nombre, precio, stock y cantidades.
-- Manejo de errores con errores predefinidos y errores formateados.
-- Inventario basado en `map[string]*Producto` para busqueda eficiente por ID.
-- Carrito basado en `[]DetalleCarrito` para agregar, eliminar y modificar productos.
-- Pedido con estados controlados: pendiente, pagado, enviado y cancelado.
-- Interfaz `MetodoPago` para aplicar polimorfismo en tarjeta, transferencia y contra entrega.
-- Reportes administrativos usando slices y concurrencia basica con goroutines y canales.
-- Pruebas unitarias con `go test`.
+- Go 1.23
+- Libreria estandar `net/http`
+- Serializacion JSON con `encoding/json`
+- Almacenamiento en memoria para fines academicos
+- Git y GitHub para versionamiento
 
-## Estructura del proyecto
+## 4. Conceptos de POO aplicados
 
-```text
-sistema-gestion-ecommerce-poo/
-|-- go.mod
-|-- README.md
-|-- .gitignore
-|-- cmd/demo/main.go
-|-- internal/ecommerce/
-|   |-- usuario.go
-|   |-- producto.go
-|   |-- inventario.go
-|   |-- carrito.go
-|   |-- pedido.go
-|   |-- pago.go
-|   |-- reporte.go
-|   |-- errors.go
-|   |-- ecommerce_test.go
-|-- docs/
-|   |-- avance-autonomo-2.md
-|   |-- guion-video-avance.md
-|   |-- guion-video-demostracion.md
-|   |-- comandos-git.md
-```
+| Concepto | Aplicacion en el proyecto |
+|---|---|
+| Abstraccion | Se modelan entidades del negocio como Producto, Cliente, Carrito, Pedido y Pago. |
+| Encapsulacion | Producto protege stock, precio y datos internos mediante metodos como `DescontarStock`. |
+| Interfaces | `MetodoPago` permite usar tarjeta, transferencia o pago contra entrega sin cambiar la logica del pedido. |
+| Polimorfismo | Diferentes metodos de pago responden al mismo comportamiento `Procesar`. |
+| Responsabilidad unica | Modelo, repositorio, servicio y API HTTP se separan en archivos distintos. |
+| Manejo de errores | Se bloquean cantidades invalidas, stock insuficiente, carritos vacios y metodos de pago no soportados. |
 
-## Como ejecutar
+## 5. Servicios web implementados
 
-```bash
-go run ./cmd/demo
-```
+| # | Metodo | Ruta | Funcionalidad |
+|---|---|---|---|
+| 1 | GET | `/api/salud` | Verifica disponibilidad del servicio. |
+| 2 | GET | `/api/productos` | Lista productos del catalogo. |
+| 3 | POST | `/api/productos` | Crea un producto. |
+| 4 | GET | `/api/productos/{id}` | Consulta producto por identificador. |
+| 5 | POST | `/api/clientes` | Registra un cliente. |
+| 6 | POST | `/api/carrito/items` | Agrega un producto al carrito. |
+| 7 | GET | `/api/carrito/{clienteId}` | Consulta carrito del cliente. |
+| 8 | POST | `/api/pedidos` | Crea pedido desde el carrito. |
+| 9 | GET | `/api/pedidos/{id}` | Consulta pedido por identificador. |
+| 10 | POST | `/api/pagos` | Procesa pago del pedido. |
+| 11 | GET | `/api/reportes/ventas` | Genera reporte de ventas. |
+| 12 | GET | `/api/reportes/inventario` | Genera reporte de inventario y bajo stock. |
 
-## Como probar
+## 6. Ejecucion
 
 ```bash
 go test ./...
+go run ./cmd/api
+# Opcional, si el puerto 8080 esta ocupado:
+PORT=18080 go run ./cmd/api
 ```
 
-## Evidencia para video
+El servidor se ejecuta en:
 
-1. Mostrar el README y explicar que el proyecto continua el e-commerce planificado.
-2. Mostrar los archivos de `internal/ecommerce` y explicar las entidades principales.
-3. Ejecutar `go test ./...` para demostrar pruebas.
-4. Ejecutar `go run ./cmd/demo` para demostrar inventario, carrito, pedido, pago y reporte.
-5. Mostrar el repositorio en GitHub con los commits del avance.
+```text
+http://localhost:8080
+```
 
-## Autor
+## 7. Ejemplo de uso
 
-Matias Castro Guerra
+```bash
+curl http://localhost:8080/api/salud
+curl http://localhost:8080/api/productos
+curl -X POST http://localhost:8080/api/carrito/items -H "Content-Type: application/json" -d '{"clienteId":"CLI-001","productoId":"PROD-001","cantidad":1}'
+curl -X POST http://localhost:8080/api/pedidos -H "Content-Type: application/json" -d '{"clienteId":"CLI-001"}'
+```
 
-## Estado
+## 8. Estructura del repositorio
 
-Etapa 2: Desarrollo del sistema con avance funcional.
+```text
+sistema-gestion-ecommerce-poo/
+|-- README.md
+|-- go.mod
+|-- cmd/
+|   `-- api/
+|       `-- main.go
+|-- internal/
+|   `-- ecommerce/
+|       |-- domain.go
+|       |-- repository.go
+|       |-- service.go
+|       |-- http.go
+|       `-- ecommerce_test.go
+|-- docs/
+|   |-- cronograma.md
+|   |-- openapi.yml
+|   |-- pruebas_funcionales.md
+|   |-- guion_video_presentacion.md
+|   `-- guion_video_demostracion.md
+`-- tests/
+```
+
+## 9. Limitaciones reconocidas
+
+La version final academica utiliza almacenamiento en memoria y pagos simulados. No integra pasarelas bancarias reales, facturacion electronica oficial, empresas de envio externas ni autenticacion productiva. Estas limitaciones son decisiones de alcance para concentrar la entrega en POO, servicios web, JSON, validaciones y demostracion funcional.
+
+## 10. Visualizacion del futuro
+
+El sistema puede evolucionar hacia una plataforma omnicanal donde los servicios web se conecten con inteligencia artificial para recomendaciones, sensores IoT para inventario, pagos digitales seguros, analitica de datos y canales moviles. Esta visualizacion muestra como la tecnologia puede mejorar la gestion empresarial, reducir errores operativos y apoyar decisiones comerciales basadas en informacion.
